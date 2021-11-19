@@ -1,7 +1,9 @@
+import 'package:chat_app/components/rounded_button.dart';
 import 'package:chat_app/constant.dart';
 import 'package:chat_app/screens/login_screen.dart';
 import 'package:chat_app/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
@@ -74,35 +76,33 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     scale: 1,
                   ),
                 ),
-                const Text(
-                  'Flash Chat',
-                  style: kMainHeadingText,
+                AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'Flash Chat',
+                      textStyle: kMainHeadingText,
+                      speed: const Duration(milliseconds: 200),
+                    ),
+                  ],
+                  repeatForever: true,
                 ),
               ],
             ),
             kMediumGap,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, LoginScreen.id);
-                },
-                child: const Text(
-                  'Log in',
-                ),
-              ),
+            RoundedButton(
+              color: Colors.lightBlueAccent,
+              title: 'Login',
+              onPressed: () {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
             ),
             kSmallGap,
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, RegistrationScreen.id);
-                },
-                child: const Text(
-                  'Register',
-                ),
-              ),
+            RoundedButton(
+              color: Colors.blueAccent,
+              title: 'Register',
+              onPressed: () {
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              },
             ),
           ],
         ),
