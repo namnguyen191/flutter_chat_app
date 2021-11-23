@@ -30,7 +30,8 @@ const kMainHeadingText = TextStyle(
 );
 
 const double kLogoSizeSmall = 50;
-const double kLogoSizeMedium = 120;
+const double kLogoSizeMedium = 80;
+const double kLogoSizeLarge = 120;
 
 const kExtraSmallGap = SizedBox(
   height: 8,
